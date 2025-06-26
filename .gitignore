@@ -2,3 +2,5 @@
 *.tfstate.backup
 */.terraform
 *.tfvars
+
+/backend/gbc_save.zip
