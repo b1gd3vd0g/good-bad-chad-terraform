@@ -88,7 +88,7 @@ resource "aws_apigatewayv2_domain_name" "api_root" {
   domain_name = var.api_domain_name
 
   domain_name_configuration {
-    certificate_arn = aws_acm_certificate.cert.arn
+    certificate_arn = aws_acm_certificate_validation.cert_validation.certificate_arn
     endpoint_type   = "REGIONAL"
     security_policy = "TLS_1_2"
   }
@@ -98,7 +98,7 @@ resource "aws_apigatewayv2_domain_name" "api_www" {
   domain_name = "www.${var.api_domain_name}"
 
   domain_name_configuration {
-    certificate_arn = aws_acm_certificate.cert.arn
+    certificate_arn = aws_acm_certificate_validation.cert_validation.certificate_arn
     endpoint_type   = "REGIONAL"
     security_policy = "TLS_1_2"
   }
