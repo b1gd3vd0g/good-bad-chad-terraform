@@ -33,6 +33,7 @@ resource "aws_lambda_function" "backend" {
       PGPORT = 5432
       PGUSER = var.pg_username
       JWTSEC = var.jwt_secret
+      FEHOST = var.game_domain_name
     }
   }
 }
