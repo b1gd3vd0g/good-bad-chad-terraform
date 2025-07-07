@@ -30,6 +30,12 @@ resource "aws_apigatewayv2_integration" "lambda" {
   payload_format_version = "2.0"
 }
 
+resource "aws_apigatewayv2_route" "docs" {
+  api_id    = aws_apigatewayv2_api.goodbadchad-api.id
+  route_key = "GET /"
+  target    = "integrations/${aws_apigatewayv2_integration.lambda.id}"
+}
+
 resource "aws_apigatewayv2_route" "login" {
   api_id    = aws_apigatewayv2_api.goodbadchad-api.id
   route_key = "POST /player/login"
